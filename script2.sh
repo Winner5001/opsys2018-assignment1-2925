@@ -15,7 +15,7 @@ while read line; do
 				echo "$site: Cloning OK"
 				rm -rf temp2925/assignments/$DIRNAME/.git
 			else
-				echo "$site: Cloning FAILED"
+				echo "$site: Cloning FAILED" 1>&2
 			fi
 			break
 		fi
@@ -34,9 +34,9 @@ for DIRECTORY in `ls temp2925/assignments/`; do
 		if [ -e temp2925/assignments/$DIRECTORY/dataA.txt ] && [ -d temp2925/assignments/$DIRECTORY/more ] && [ -e temp2925/assignments/$DIRECTORY/more/dataB.txt ] && [ -e temp2925/assignments/$DIRECTORY/more/dataC.txt ]; then
 			echo "Directory structure is OK."
 		else
-			echo "Directory structure is NOT OK."
+			echo "Directory structure is NOT OK." 1>&2
 		fi
 	else
-		echo "Directory structure is NOT OK."
+		echo "Directory structure is NOT OK." 1>&2
 	fi
 done

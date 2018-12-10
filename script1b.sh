@@ -2,7 +2,7 @@
 
 function magic {
 	TEMPVAR=`echo $line | head -c 1`
-	if [ $TEMPVAR != "#" ]; then
+	if [[ $TEMPVAR != "#" ]] && [ -n "$TEMPVAR" ]; then
 		TEMPNAME=`echo $line | md5sum | cut -d " " -f1`
 		if [ ! -e temp/$TEMPNAME ]; then
 			curl -s $line > temp/$TEMPNAME
